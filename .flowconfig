@@ -1,0 +1,8 @@
+[include]
+index.js
+
+[libs]
+decls/
+
+[ignore]
+.*/node_modules/.*

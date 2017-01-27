@@ -1,0 +1,18 @@
+{
+  "name": "flow-type-examples",
+  "scripts": {
+    "flow": "flow; test $? -eq 0 -o $? -eq 2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "flow": "^0.2.3",
+    "flow-bin": "^0.38.0"
+  },
+  "version": "1.0.0",
+  "description": "example for flow type",
+  "main": "index.js",
+  "author": "ksugiura",
+  "license": "MIT",
+  "dependencies": {}
+}
