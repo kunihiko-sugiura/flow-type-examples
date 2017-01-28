@@ -1,6 +1,7 @@
 // @flow
 // * 弱いチェックモード
 /* flow weak */
+import * as _ from "underscore";
 
 //region ** Premitive Types
 
@@ -10,9 +11,9 @@
 let strType: string  = 'hello world!';
 // * Normal
 (strType: string);
-((100 + "%") : string);
-(null: string|null);
-(undefined: string|void);
+((100 + "%"): string);
+(null: string | null);
+(undefined: string | void);
 // * Error
 // strType = 1;
 
@@ -45,12 +46,6 @@ let numType: number  = 0;
  * Any 型チェックの放棄
  ***************************/
 var anyTest:any = null;
-
-// * Declare ambient variant
-// グローバル変数として露出する変数の型を握りつぶす場合は、次のように書くらしい。
-declare var $:any; // example jquery
-
-// TODO:declare するとどう違うのか
 
 /***************************
  * Array
@@ -263,7 +258,6 @@ takes_any(basicClassA);     // Class Instance
 // * global variant type
 // 外部ライブラリにちゃんと型を定義する方法
 // interfaces/underscore.jsに定義
-declare var _: Underscore;
 var pizzas = [
     { title: 'Four cheese', vegetarian: true },
     { title: 'Hawaiian', vegetarian: false },
@@ -272,6 +266,15 @@ function vegetarianPizzas() {
     return _.findWhere(pizzas, {vegetarian: true});
 }
 vegetarianPizzas();
+
+
+
+/***************************
+ * Declare ambient variant
+ * declareを使って宣言することによりglobalに存在するobjectを認識できる
+ * グローバル変数として露出する変数の型を放棄(any)する場合は、次のように書く
+ ***************************/
+declare var $:any; // example jquery
 
 
 // * Mixed
@@ -377,5 +380,4 @@ var total = length('Hello') + length(null);
 // function length(x) {
 //     return x.length;
 // }
-// var total = length('Hello') + length(null);
-
+// var toal = length('Hello') + length(null);
