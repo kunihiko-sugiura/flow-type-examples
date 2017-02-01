@@ -2,9 +2,9 @@
   "name": "flow-type-examples",
   "scripts": {
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
-    "build": "babel src -d dest",
+    "build": "babel src -d dest;browserify -t babelify src/react.jsx -o dest/react.js",
     "watch": "babel -w src -d dest",
-    "immutable-test": "node dest/immutable-test.js",
+    "immutable-test": "node dest/immutable.js",
     "eslint": "eslint"
   },
   "devDependencies": {
@@ -14,12 +14,19 @@
     "babel-plugin-transform-class-properties": "^6.22.0",
     "babel-plugin-transform-flow-comments": "^6.22.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-react-jsx": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.0.0",
     "eslint": "^3.14.1",
     "eslint-plugin-flowtype": "^2.30.0",
     "flow": "^0.2.3",
     "flow-bin": "^0.38.0",
     "immutable": "^3.8.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "reactify": "^1.1.1",
     "underscore": "^1.8.3"
   },
   "version": "1.0.0",

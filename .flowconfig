@@ -1,10 +1,11 @@
 [include]
-.*/src/.*
+.*/src/.js
+.*/src/.jsx
 node_modules/
 
 [libs]
 decls/
 
 [ignore]
-;.*/node_modules/.*
+.*/node_modules/fbjs/.*
 .*/dest/.*
