@@ -1,5 +1,5 @@
 {
-  "name": "flow-type-examples",
+  "name": "try-flow-type",
   "scripts": {
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "build": "babel src -d dest;browserify -t babelify src/react.jsx -o dest/react.js",

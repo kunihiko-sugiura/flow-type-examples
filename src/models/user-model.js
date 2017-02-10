@@ -3,25 +3,8 @@
  * @flow
  */
 import * as Immutable from "immutable";
-
-/***************************
- * Immutable Record with Flow
- ***************************/
-// * UserRemarksModel
-export type UserRemarksType = {
-    text: string
-};
-export const defaultUserRemarks: UserRemarksType = {
-    // Normal
-    text: '',
-    // * Error!
-    // text: 1,
-};
-export class UserRemarksModel extends Immutable.Record(defaultUserRemarks) {
-    static fromJS(props: UserRemarksType = defaultUserRemarks): UserRemarksModel {
-        return (new this).merge(props);
-    }
-}
+import { UserRemarksModel } from "./user-remarks";
+import type {UserRemarksType} from "./user-remarks";
 
 // * UserModel
 export type UserType = {
@@ -40,6 +23,7 @@ export const defaultUser: UserType = {
 };
 
 export class UserModel extends Immutable.Record(defaultUser) {
+
     static fromJSRoot(key: any, value: any): any {
         if (Immutable.Iterable.Indexed(value)) {
             let users = Immutable.List();
@@ -67,7 +51,7 @@ export class UserModel extends Immutable.Record(defaultUser) {
         );
     }
     getFullName(): string {
-        return this.firstName + ' - ' + this.lastName;
+        return this.firstName + ' ' + this.lastName;
     }
     incrementAge(){
         return this.set( 'age', this.get('age') + 1);
@@ -76,4 +60,3 @@ export class UserModel extends Immutable.Record(defaultUser) {
         return this.set( 'age', this.get('age') - 1);
     }
 }
-
